@@ -49,20 +49,20 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 // });
 
 /* header */
-// const navigation = document.querySelector(".navigation");
-// let prevScrollTop = 0;
+const navigation = document.querySelector(".navigation");
+let prevScrollTop = 0;
 
-// window.addEventListener("scroll", function () {
-//   let nowScrollTop = this.window.scrollY;
+window.addEventListener("scroll", function () {
+  let nowScrollTop = this.window.scrollY;
 
-//   if (nowScrollTop > prevScrollTop) {
-//     navigation.classList.add("scrolled");
-//   } else {
-//     navigation.classList.remove("scrolled");
-//   }
+  if (nowScrollTop > prevScrollTop) {
+    navigation.classList.add("scrolled");
+  } else {
+    navigation.classList.remove("scrolled");
+  }
 
-//   prevScrollTop = nowScrollTop;
-// });
+  prevScrollTop = nowScrollTop;
+});
 
 /* scrolla */
 $(".animate").scrolla({
