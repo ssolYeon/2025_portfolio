@@ -122,7 +122,7 @@ ScrollTrigger.matchMedia({
     const tl1 = gsap.timeline();
 
     tl1
-      .fromTo(".video-clip", { width: "85%", borderRadius: "1.25rem 1.25rem 0 0" }, { width: "100%", borderRadius: "0", ease: "none", duration: 10 }, 0)
+      .fromTo(".video-clip", { width: "85vw", borderRadius: "1.25rem 1.25rem 0 0" }, { width: "100%", borderRadius: "0", ease: "none", duration: 10 }, 0)
       .fromTo(".video-cover", { opacity: "0" }, { opacity: "1", ease: "none", duration: 10 }, 0)
       .to(".intro-name", { bottom: "14rem", ease: "none", duration: 10 }, 0);
 
