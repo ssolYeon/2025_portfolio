@@ -64,12 +64,6 @@ window.addEventListener("scroll", function () {
   prevScrollTop = nowScrollTop;
 });
 
-/* scrolla */
-$(".animate").scrolla({
-  mobile: true,
-  once: false,
-});
-
 /* bounce title */
 const bounceBoxes = gsap.utils.toArray(".bounce_title");
 bounceBoxes.forEach((box) => {
