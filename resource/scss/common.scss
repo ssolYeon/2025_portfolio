@@ -86,13 +86,12 @@ body {
   font-size: 1rem;
   border-radius: 0.625em 0 0 0.625em;
   background-color: rgba($color: #fff, $alpha: 0.8);
-  transition: right 0.3s;
-  will-change: right;
+  transition: transform 0.3s;
+  will-change: transform;
   z-index: 100;
 
   &.scrolled {
-    //transform: translateX(calc(100% + 10px));
-    right: -100%;
+    transform: translateX(100vw);
   }
 
   &-link {
