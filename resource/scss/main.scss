@@ -282,7 +282,7 @@
 
     &:hover {
       .likeIt-icon {
-        display: block;
+        opacity: 1;
       }
     }
   }
@@ -291,8 +291,8 @@
     position: absolute;
     top: var(--y);
     left: var(--x);
-    display: none;
     color: #fff;
+    opacity: 0;
     transform: translate(-50%, -50%);
     pointer-events: none;
   }

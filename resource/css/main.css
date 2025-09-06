@@ -257,14 +257,14 @@
   transition: background-size cubic-bezier(0.1, 0.5, 0.5, 1) 0.5s;
 }
 .likeIt-item:hover .likeIt-icon {
-  display: block;
+  opacity: 1;
 }
 .likeIt-icon {
   position: absolute;
   top: var(--y);
   left: var(--x);
-  display: none;
   color: #fff;
+  opacity: 0;
   transform: translate(-50%, -50%);
   pointer-events: none;
 }
