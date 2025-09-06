@@ -355,7 +355,7 @@ likeElems.forEach((elem) => {
 });
 
 // like it : 마우스 호버 시 효과
-// const likeItItems = document.querySelectorAll(".likeIt-item");
+const likeItItems = document.querySelectorAll(".likeIt-item");
 
 // likeItItems.forEach((item) => {
 //   item.addEventListener("mousemove", (e) => {
