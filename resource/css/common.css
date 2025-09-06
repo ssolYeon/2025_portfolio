@@ -9,11 +9,11 @@
 */
 /* 기본 설정 */
 :root {
-  overflow-x: hidden;
   font-size: 16px;
 }
 
 html {
+  overflow-x: hidden;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -69,7 +69,7 @@ body {
   z-index: 100;
 }
 .navigation.scrolled {
-  transform: translateX(100vw);
+  transform: translateX(110%);
 }
 .navigation-link {
   position: relative;
