@@ -355,50 +355,50 @@ likeElems.forEach((elem) => {
 });
 
 // like it : 마우스 호버 시 효과
-const likeItItems = document.querySelectorAll(".likeIt-item");
+// const likeItItems = document.querySelectorAll(".likeIt-item");
 
-likeItItems.forEach((item) => {
-  item.addEventListener("mousemove", (e) => {
-    const rect = item.getBoundingClientRect();
-    let x = e.clientX - rect.left;
-    let y = e.clientY - rect.top;
+// likeItItems.forEach((item) => {
+//   item.addEventListener("mousemove", (e) => {
+//     const rect = item.getBoundingClientRect();
+//     let x = e.clientX - rect.left;
+//     let y = e.clientY - rect.top;
 
-    item.style.setProperty("--x", `${x}px`);
-    item.style.setProperty("--y", `${y}px`);
-  });
-});
+//     item.style.setProperty("--x", `${x}px`);
+//     item.style.setProperty("--y", `${y}px`);
+//   });
+// });
 
 // 모바일에서 아이콘 자동 노출 참고
-// if (window.matchMedia("(hover: hover)").matches) {
-//   // PC: hover 효과
-//   likeItItems.forEach((item) => {
-//     item.addEventListener("mousemove", (e) => {
-//       const rect = item.getBoundingClientRect();
-//       let x = e.clientX - rect.left;
-//       let y = e.clientY - rect.top;
-//       item.style.setProperty("--x", `${x}px`);
-//       item.style.setProperty("--y", `${y}px`);
-//     });
-//   });
-// } else {
-//   // Mobile: scrollTrigger로 아이콘 보이기
-//   gsap.registerPlugin(ScrollTrigger);
-//   likeItItems.forEach((item) => {
-//     let icon = item.querySelector(".likeIt-icon");
-//     if (icon) {
-//       gsap.to(icon, {
-//         scrollTrigger: {
-//           trigger: item,
-//           start: "top 80%",
-//           toggleActions: "play none none reverse"
-//         },
-//         autoAlpha: 1,
-//         duration: 0.5,
-//         scale: 1,
-//       });
-//     }
-//   });
-// }
+if (window.matchMedia("(hover: hover)").matches) {
+  // PC: hover 효과
+  likeItItems.forEach((item) => {
+    item.addEventListener("mousemove", (e) => {
+      const rect = item.getBoundingClientRect();
+      let x = e.clientX - rect.left;
+      let y = e.clientY - rect.top;
+      item.style.setProperty("--x", `${x}px`);
+      item.style.setProperty("--y", `${y}px`);
+    });
+  });
+} else {
+  // Mobile: scrollTrigger로 아이콘 보이기
+  gsap.registerPlugin(ScrollTrigger);
+  likeItItems.forEach((item) => {
+    let icon = item.querySelector(".likeIt-icon");
+    if (icon) {
+      gsap.to(icon, {
+        scrollTrigger: {
+          trigger: item,
+          start: "top 80%",
+          toggleActions: "play none none reverse",
+        },
+        autoAlpha: 1,
+        duration: 0.5,
+        scale: 1,
+      });
+    }
+  });
+}
 
 /* footer */
 gsap.to(".footer-front", {
