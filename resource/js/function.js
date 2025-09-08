@@ -14,9 +14,9 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 
-lenis.on("scroll", (e) => {
-  console.log(e);
-});
+// lenis.on("scroll", (e) => {
+//   console.log(e);
+// });
 
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {

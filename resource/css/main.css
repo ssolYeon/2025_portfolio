@@ -1,5 +1,6 @@
 /* intro */
 .intro {
+  overflow: hidden !important;
   position: relative;
   padding-top: 50vh;
 }
