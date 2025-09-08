@@ -2,17 +2,15 @@
 
 /* intro */
 .intro {
-  overflow: hidden;
   position: relative;
   padding-top: 50vh;
 
   &-name {
     position: fixed;
     bottom: 62vh;
-    //left: 50%;
+    width: 100%;
     font-size: 0;
     text-align: center;
-    //transform: translateX(-50%);
     transition: none;
     z-index: 1;
 
@@ -58,7 +56,7 @@
   &-text {
     position: fixed;
     bottom: 10rem;
-    //width: 100%;
+    width: 100%;
     color: #fff;
     font-family: "S-CoreDream";
     font-size: 1.375rem;

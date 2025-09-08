@@ -1,12 +1,12 @@
 /* intro */
 .intro {
-  overflow: hidden;
   position: relative;
   padding-top: 50vh;
 }
 .intro-name {
   position: fixed;
   bottom: 62vh;
+  width: 100%;
   font-size: 0;
   text-align: center;
   transition: none;
@@ -49,6 +49,7 @@
 .intro-text {
   position: fixed;
   bottom: 10rem;
+  width: 100%;
   color: #fff;
   font-family: "S-CoreDream";
   font-size: 1.375rem;
