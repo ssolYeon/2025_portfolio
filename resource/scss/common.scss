@@ -15,12 +15,16 @@
   font-size: 16px;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 html {
   -webkit-text-size-adjust: 100%;
 }
 
 body {
-  overflow-x: hidden;
   width: 100%;
   margin: 0 auto;
   font-family: "Pretendard", "Noto Sans KR", sans-serif, "굴림", "dotum", "돋움", "Helvetica", "AppleGothic";
@@ -77,55 +81,55 @@ body {
 // }
 
 /* navigation */
-// .navigation {
-//   position: fixed;
-//   top: 4.375rem;
-//   right: 0;
-//   width: fit-content;
-//   padding: 0 1.25em;
-//   font-size: 1rem;
-//   border-radius: 0.625em 0 0 0.625em;
-//   background-color: rgba($color: #fff, $alpha: 0.8);
-//   transition: transform 0.3s;
-//   will-change: transform;
-//   z-index: 100;
+.navigation {
+  position: fixed;
+  top: 4.375rem;
+  right: 0;
+  width: fit-content;
+  padding: 0 1.25em;
+  font-size: 1rem;
+  border-radius: 0.625em 0 0 0.625em;
+  background-color: rgba($color: #fff, $alpha: 0.8);
+  transition: transform 0.3s;
+  will-change: transform;
+  z-index: 100;
 
-//   &.scrolled {
-//     transform: translateX(100%);
-//   }
+  &.scrolled {
+    transform: translateX(100%);
+  }
 
-//   &-link {
-//     position: relative;
-//     display: block;
-//     padding: 0.9375em;
-//     color: #575757;
-//     font-family: "Raleway", sans-serif;
-//     text-transform: uppercase;
-//     transition: color 0.3s;
+  &-link {
+    position: relative;
+    display: block;
+    padding: 0.9375em;
+    color: #575757;
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    transition: color 0.3s;
 
-//     &:before {
-//       content: attr(data-icon);
-//       position: absolute;
-//       top: 50%;
-//       left: 0;
-//       transform: translateY(-50%);
-//       opacity: 0;
-//       visibility: hidden;
-//       transition: 0.3s;
-//     }
+    &:before {
+      content: attr(data-icon);
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+    }
 
-//     &:hover {
-//       color: #222;
-//       font-weight: 600;
+    &:hover {
+      color: #222;
+      font-weight: 600;
 
-//       &:before {
-//         left: -0.625em;
-//         opacity: 1;
-//         visibility: visible;
-//       }
-//     }
-//   }
-// }
+      &:before {
+        left: -0.625em;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
 
 /* footer */
 .footer {
