@@ -13,11 +13,10 @@
 }
 
 html {
-  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 body {
-  overflow-x: hidden;
   width: 100%;
   margin: 0 auto;
   font-family: "Pretendard", "Noto Sans KR", sans-serif, "굴림", "dotum", "돋움", "Helvetica", "AppleGothic";
