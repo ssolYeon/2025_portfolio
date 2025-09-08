@@ -18,20 +18,20 @@ lenis.on("scroll", (e) => {
   console.log(e);
 });
 
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
+// document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+//   anchor.addEventListener("click", function (e) {
+//     e.preventDefault();
 
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      lenis.scrollTo(target, {
-        offset: 0, // 필요 시 헤더 높이만큼 보정
-        duration: 1.2, // 이동 시간
-        easing: (t) => 1 - Math.pow(1 - t, 3), // 부드러운 커브
-      });
-    }
-  });
-});
+//     const target = document.querySelector(this.getAttribute("href"));
+//     if (target) {
+//       lenis.scrollTo(target, {
+//         offset: 0, // 필요 시 헤더 높이만큼 보정
+//         duration: 1.2, // 이동 시간
+//         easing: (t) => 1 - Math.pow(1 - t, 3), // 부드러운 커브
+//       });
+//     }
+//   });
+// });
 
 /* cursor */
 // const cursor = document.querySelector(".cursor");
@@ -49,20 +49,20 @@ document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
 // });
 
 /* header */
-const navigation = document.querySelector(".navigation");
-let prevScrollTop = 0;
+// const navigation = document.querySelector(".navigation");
+// let prevScrollTop = 0;
 
-window.addEventListener("scroll", function () {
-  let nowScrollTop = this.window.scrollY;
+// window.addEventListener("scroll", function () {
+//   let nowScrollTop = this.window.scrollY;
 
-  if (nowScrollTop > prevScrollTop) {
-    navigation.classList.add("scrolled");
-  } else {
-    navigation.classList.remove("scrolled");
-  }
+//   if (nowScrollTop > prevScrollTop) {
+//     navigation.classList.add("scrolled");
+//   } else {
+//     navigation.classList.remove("scrolled");
+//   }
 
-  prevScrollTop = nowScrollTop;
-});
+//   prevScrollTop = nowScrollTop;
+// });
 
 /* bounce title */
 const bounceBoxes = gsap.utils.toArray(".bounce_title");
