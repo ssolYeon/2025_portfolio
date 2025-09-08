@@ -2,7 +2,6 @@
 
 /* intro */
 .intro {
-  overflow: hidden !important;
   position: relative;
   padding-top: 50vh;
 
@@ -10,7 +9,7 @@
     position: fixed;
     bottom: 62vh;
     left: 0;
-    // width: 100%;
+    width: 100vw;
     font-size: 0;
     text-align: center;
     transition: none;
