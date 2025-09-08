@@ -6,10 +6,10 @@
 .intro-name {
   position: fixed;
   bottom: 62vh;
-  left: 0;
-  width: 100vw;
+  left: 50%;
   font-size: 0;
   text-align: center;
+  transform: translateX(-50%);
   transition: none;
   z-index: 1;
 }
