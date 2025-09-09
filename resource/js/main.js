@@ -1,54 +1,5 @@
-/* gsap 등록 */
-gsap.registerPlugin(ScrollTrigger);
-
-/* lenis */
-const lenis = new Lenis({
-  duration: 1,
-  easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-});
-
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
-
-requestAnimationFrame(raf);
-
-// lenis.on("scroll", (e) => {
-//   console.log(e);
-// });
-
-document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
-    e.preventDefault();
-
-    const target = document.querySelector(this.getAttribute("href"));
-    if (target) {
-      lenis.scrollTo(target, {
-        offset: 0, // 필요 시 헤더 높이만큼 보정
-        duration: 1.2, // 이동 시간
-        easing: (t) => 1 - Math.pow(1 - t, 3), // 부드러운 커브
-      });
-    }
-  });
-});
-
-/* cursor */
-// const cursor = document.querySelector(".cursor");
-
-// document.addEventListener("mousemove", (e) => {
-//   cursor.style.left = `${e.clientX}px`;
-//   cursor.style.top = `${e.clientY}px`;
-// });
-
-// document.addEventListener("mousedown", () => {
-//   cursor.classList.add("active");
-// });
-// document.addEventListener("mouseup", () => {
-//   cursor.classList.remove("active");
-// });
-
-/* header */
+/* navigation */
+// navigation : 스크롤 방향에 따라 show, hide
 const navigation = document.querySelector(".navigation");
 let prevScrollTop = 0;
 
@@ -62,6 +13,23 @@ window.addEventListener("scroll", function () {
   }
 
   prevScrollTop = nowScrollTop;
+});
+
+// navigation : 메뉴 클릭 시 해당 섹션으로 이동
+const naviLink = document.querySelectorAll('.navigation a[href^="#"]');
+naviLink.forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    const attr = document.querySelector(this.getAttribute("href"));
+    if (attr) {
+      lenis.scrollTo(attr, {
+        offset: 0,
+        duration: 1.2,
+        easing: (t) => 1 - Math.pow(1 - t, 3),
+      });
+    }
+  });
 });
 
 /* bounce title */
@@ -374,7 +342,6 @@ likeItItems.forEach((item) => {
 });
 
 // if (window.matchMedia("(hover: hover)").matches) {
-//   // PC: hover 효과
 //   likeItItems.forEach((item) => {
 //     item.addEventListener("mousemove", (e) => {
 //       const rect = item.getBoundingClientRect();
@@ -414,3 +381,18 @@ gsap.to(".footer-front", {
     //markers: true,
   },
 });
+
+/* cursor */
+// const cursor = document.querySelector(".cursor");
+
+// document.addEventListener("mousemove", (e) => {
+//   cursor.style.left = `${e.clientX}px`;
+//   cursor.style.top = `${e.clientY}px`;
+// });
+
+// document.addEventListener("mousedown", () => {
+//   cursor.classList.add("active");
+// });
+// document.addEventListener("mouseup", () => {
+//   cursor.classList.remove("active");
+// });
