@@ -1,8 +1,12 @@
-/* gsap 등록 */
+/* ------------------------------
+   gsap 등록
+------------------------------ */
 gsap.registerPlugin(InertiaPlugin);
 
-/* navigation */
-// navigation : 스크롤 방향에 따라 show, hide
+/* ------------------------------
+   navigation
+------------------------------ */
+// 스크롤 방향에 따라 show, hide
 const navigation = document.querySelector(".navigation");
 let prevScrollTop = 0;
 
@@ -18,7 +22,7 @@ window.addEventListener("scroll", function () {
   prevScrollTop = nowScrollTop;
 });
 
-// navigation : 메뉴 클릭 시 해당 섹션으로 이동
+// 메뉴 클릭 시 해당 섹션으로 이동
 const naviLink = document.querySelectorAll('.navigation a[href^="#"]');
 naviLink.forEach((link) => {
   link.addEventListener("click", function (e) {
@@ -35,7 +39,9 @@ naviLink.forEach((link) => {
   });
 });
 
-/* bounce title */
+/* ------------------------------
+   bounce title
+------------------------------ */
 const bounceBoxes = gsap.utils.toArray(".bounce_title");
 bounceBoxes.forEach((box) => {
   const titleHidden = box.querySelector(".bounce_title .hidden");
@@ -55,8 +61,10 @@ bounceBoxes.forEach((box) => {
   );
 });
 
-/* intro */
-// intro : name path 길이 구하기
+/* ------------------------------
+   intro
+------------------------------ */
+// name path 길이 구하기
 const namePath = document.querySelectorAll(".intro-name path");
 
 namePath.forEach((item) => {
@@ -64,7 +72,7 @@ namePath.forEach((item) => {
   console.log(totalLength);
 });
 
-// intro : tl1
+// intro video 애니메이션
 ScrollTrigger.matchMedia({
   "(min-width: 1025px)": function () {
     const tl1 = gsap.timeline();
@@ -113,7 +121,7 @@ ScrollTrigger.matchMedia({
   },
 });
 
-// intro : tl2
+// intro text 애니메이션
 const tl2 = gsap.timeline();
 tl2.from(".intro-text .text1", { autoAlpha: 0, duration: 5, y: 50 }, "+=1").from(".intro-text .text2", { autoAlpha: 0, duration: 5, y: 50 }, "+=1");
 
@@ -139,8 +147,10 @@ ScrollTrigger.create({
   },
 });
 
-/* project */
-// project : 타이틀 고정
+/* ------------------------------
+   project
+------------------------------ */
+// 타이틀 고정
 ScrollTrigger.create({
   trigger: ".project-pin",
   start: "top top",
@@ -151,7 +161,7 @@ ScrollTrigger.create({
   scrub: true,
 });
 
-// project : 스크롤 시 이질감
+// 스크롤 시 이질감
 gsap.to(".project-item", {
   yPercent: -30,
   ease: "power2.out",
@@ -168,7 +178,7 @@ gsap.to(".project-item", {
   },
 });
 
-// project : hover 위치에 따라 반응
+// hover 위치에 따라 반응
 const pdLinks = document.querySelectorAll(".project-link");
 pdLinks.forEach((link) => {
   link.addEventListener("mousemove", function (e) {
@@ -189,7 +199,7 @@ pdLinks.forEach((link) => {
   });
 });
 
-// project : marquee
+// marquee
 const marqueeCont = document.querySelector(".project-marquee");
 const marqueeList = document.querySelector(".project-marqueeList");
 const originalMarquee = [...marqueeList.children];
@@ -209,7 +219,9 @@ const marqueeTween = gsap.to(marqueeList, {
 marqueeCont.addEventListener("mouseenter", () => marqueeTween.pause());
 marqueeCont.addEventListener("mouseleave", () => marqueeTween.resume());
 
-/* about me */
+/* ------------------------------
+   about me
+------------------------------ */
 ScrollTrigger.matchMedia({
   "(min-width: 1401px)": function () {
     const tl3 = gsap.timeline();
@@ -312,8 +324,10 @@ ScrollTrigger.matchMedia({
   },
 });
 
-/* like it - list */
-// like it - list : 스크롤 시 텍스트 배경 채워짐
+/* ------------------------------
+   like it
+------------------------------ */
+// 스크롤 시 list 텍스트 배경 채워짐
 const likeElems = gsap.utils.toArray(".likeIt-item");
 
 likeElems.forEach((elem) => {
@@ -330,7 +344,7 @@ likeElems.forEach((elem) => {
   });
 });
 
-// like it - list : 마우스 호버 시 아이콘 효과
+// list 마우스 호버 시 아이콘 효과
 const likeItItems = document.querySelectorAll(".likeIt-item");
 
 likeItItems.forEach((item) => {
@@ -344,7 +358,7 @@ likeItItems.forEach((item) => {
   });
 });
 
-// like it - effect : 마우스 무브 시 이미지 효과
+// 마우스 무브 시 이미지 반응 효과
 let oldX = 0,
   oldY = 0,
   deltaX = 0,
@@ -398,7 +412,7 @@ likeItEffect.querySelectorAll(".likeIt-imgBox").forEach((box) => {
   });
 });
 
-// like it - effect : effect 섹선 도달 시 배경 색 변경
+// effect 섹선 도달 시 배경 색 변경
 ScrollTrigger.create({
   trigger: likeItEffect,
   start: "top center",
@@ -410,18 +424,3 @@ ScrollTrigger.create({
     gsap.to("body", { backgroundColor: "white", duration: 0.5 });
   },
 });
-
-/* cursor */
-// const cursor = document.querySelector(".cursor");
-
-// document.addEventListener("mousemove", (e) => {
-//   cursor.style.left = `${e.clientX}px`;
-//   cursor.style.top = `${e.clientY}px`;
-// });
-
-// document.addEventListener("mousedown", () => {
-//   cursor.classList.add("active");
-// });
-// document.addEventListener("mouseup", () => {
-//   cursor.classList.remove("active");
-// });
