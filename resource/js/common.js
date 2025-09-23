@@ -1,5 +1,6 @@
 /* gsap 등록 */
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(InertiaPlugin);
 
 /* lenis */
 const lenis = new Lenis({

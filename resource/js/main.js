@@ -17,8 +17,8 @@ window.addEventListener("scroll", function () {
 
 // navigation : 메뉴 클릭 시 해당 섹션으로 이동
 const naviLink = document.querySelectorAll('.navigation a[href^="#"]');
-naviLink.forEach((anchor) => {
-  anchor.addEventListener("click", function (e) {
+naviLink.forEach((link) => {
+  link.addEventListener("click", function (e) {
     e.preventDefault();
 
     const attr = document.querySelector(this.getAttribute("href"));
@@ -309,8 +309,8 @@ ScrollTrigger.matchMedia({
   },
 });
 
-/* like it */
-// like it : 스크롤 시 텍스트 배경 채워짐
+/* like it - list */
+// like it - list : 스크롤 시 텍스트 배경 채워짐
 const likeElems = gsap.utils.toArray(".likeIt-item");
 
 likeElems.forEach((elem) => {
@@ -327,7 +327,7 @@ likeElems.forEach((elem) => {
   });
 });
 
-// like it : 마우스 호버 시 효과
+// like it - list : 마우스 호버 시 아이콘 효과
 const likeItItems = document.querySelectorAll(".likeIt-item");
 
 likeItItems.forEach((item) => {
@@ -341,34 +341,72 @@ likeItItems.forEach((item) => {
   });
 });
 
-// if (window.matchMedia("(hover: hover)").matches) {
-//   likeItItems.forEach((item) => {
-//     item.addEventListener("mousemove", (e) => {
-//       const rect = item.getBoundingClientRect();
-//       let x = e.clientX - rect.left;
-//       let y = e.clientY - rect.top;
-//       item.style.setProperty("--x", `${x}px`);
-//       item.style.setProperty("--y", `${y}px`);
-//     });
-//   });
-// } else {
-//   gsap.registerPlugin(ScrollTrigger);
-//   likeItItems.forEach((item) => {
-//     let icon = item.querySelector(".likeIt-icon");
-//     if (icon) {
-//       gsap.to(icon, {
-//         scrollTrigger: {
-//           trigger: item,
-//           start: "top 80%",
-//           toggleActions: "play none none reverse",
-//         },
-//         autoAlpha: 1,
-//         duration: 0.5,
-//         scale: 1,
-//       });
-//     }
-//   });
-// }
+// like it - effect : 마우스 무브 시 이미지 효과
+let oldX = 0,
+  oldY = 0,
+  deltaX = 0,
+  deltaY = 0;
+
+const likeItEffect = document.querySelector(".likeIt-effect");
+likeItEffect.addEventListener("mousemove", (e) => {
+  deltaX = e.clientX - oldX;
+  deltaY = e.clientY - oldY;
+
+  oldX = e.clientX;
+  oldY = e.clientY;
+});
+
+likeItEffect.querySelectorAll(".likeIt-imgBox").forEach((box) => {
+  box.addEventListener("mouseenter", () => {
+    const t4 = gsap.timeline({
+      onComplete: () => {
+        t4.kill();
+      },
+    });
+    t4.timeScale(1.2);
+
+    const image = box.querySelector("img");
+    t4.to(image, {
+      inertia: {
+        x: {
+          velocity: deltaX * 10,
+          end: 0,
+        },
+        y: {
+          velocity: deltaY * 10,
+          end: 0,
+        },
+      },
+    });
+    t4.fromTo(
+      image,
+      {
+        rotate: 0,
+      },
+      {
+        duration: 0.4,
+        rotate: (Math.random() - 0.5) * 20,
+        yoyo: true,
+        repeat: 1,
+        ease: "power1.inOut",
+      },
+      "<"
+    );
+  });
+});
+
+// like it - effect : effect 섹선 도달 시 배경 색 변경
+ScrollTrigger.create({
+  trigger: likeItEffect,
+  start: "top center",
+  end: "bottom center",
+  onEnter: () => {
+    gsap.to("body", { backgroundColor: "black", duration: 0.5 });
+  },
+  onLeaveBack: () => {
+    gsap.to("body", { backgroundColor: "white", duration: 0.5 });
+  },
+});
 
 /* footer */
 gsap.to(".footer-front", {
