@@ -51,6 +51,10 @@ body {
 }
 
 /* layout */
+.wrap.sub {
+  background-color: #000;
+}
+
 .inner {
   max-width: 73rem;
   padding: 0 2rem;

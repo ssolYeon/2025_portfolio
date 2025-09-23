@@ -1,6 +1,5 @@
 /* gsap 등록 */
 gsap.registerPlugin(ScrollTrigger);
-gsap.registerPlugin(InertiaPlugin);
 
 /* lenis */
 const lenis = new Lenis({
@@ -15,6 +14,18 @@ function raf(time) {
 
 requestAnimationFrame(raf);
 
-lenis.on("scroll", (e) => {
-  console.log(e);
+// lenis.on("scroll", (e) => {
+//   console.log(e);
+// });
+
+/* footer */
+gsap.to(".footer-front", {
+  height: "100%",
+  scrollTrigger: {
+    trigger: ".footer",
+    start: "top 40%",
+    end: "top top",
+    scrub: true,
+    //markers: true,
+  },
 });

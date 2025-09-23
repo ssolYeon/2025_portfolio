@@ -1,3 +1,6 @@
+/* gsap 등록 */
+gsap.registerPlugin(InertiaPlugin);
+
 /* navigation */
 // navigation : 스크롤 방향에 따라 show, hide
 const navigation = document.querySelector(".navigation");
@@ -405,18 +408,6 @@ ScrollTrigger.create({
   },
   onLeaveBack: () => {
     gsap.to("body", { backgroundColor: "white", duration: 0.5 });
-  },
-});
-
-/* footer */
-gsap.to(".footer-front", {
-  height: "100%",
-  scrollTrigger: {
-    trigger: ".footer",
-    start: "top 40%",
-    end: "top top",
-    scrub: true,
-    //markers: true,
   },
 });
 
