@@ -426,4 +426,8 @@
   .skills .front-item.item7 img {
     width: 4.5rem;
   }
+  /* about me - likeIt */
+  .likeIt-effect {
+    gap: 0.9375rem;
+  }
 }
