@@ -84,6 +84,26 @@
 .attachedFile-video video + video {
   margin-top: 1.875rem;
 }
+.attachedFile-video + .attachedFile-image {
+  margin-top: 3.125rem;
+}
+.attachedFile-image img {
+  border-radius: 1rem;
+}
+.attachedFile-image img.mt30 {
+  margin-top: 1.875rem;
+}
+.attachedFile-image img.mt50 {
+  margin-top: 3.125rem;
+}
+.attachedFile-image.flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+}
+.attachedFile-image.flex img {
+  width: calc((100% - 1.25rem) / 3);
+}
 
 @media screen and (max-width: 1024px) {
   /* attachedFile */

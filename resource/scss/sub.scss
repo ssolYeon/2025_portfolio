@@ -96,6 +96,32 @@
         margin-top: 1.875rem;
       }
     }
+
+    & + .attachedFile-image {
+      margin-top: 3.125rem;
+    }
+  }
+
+  &-image {
+    img {
+      border-radius: 1rem;
+      &.mt30 {
+        margin-top: 1.875rem;
+      }
+      &.mt50 {
+        margin-top: 3.125rem;
+      }
+    }
+
+    &.flex {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.625rem;
+
+      img {
+        width: calc((100% - 1.25rem) / 3);
+      }
+    }
   }
 }
 
