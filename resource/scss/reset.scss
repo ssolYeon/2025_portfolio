@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+/* Reset 기본값 */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+/* HTML5 display-role reset */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section {
+  display: block;
+}
+
+ul,
+ol,
+li,
+dl {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote::before,
+blockquote::after,
+q::before,
+q::after {
+  content: "";
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+img,
+fieldset {
+  max-width: 100%;
+  border: 0;
+  vertical-align: middle;
+}
+
+legend {
+  display: none;
+}
+
+textarea {
+  resize: none;
+  outline: none;
+}
+
+/* Form 기본 스타일 제거 */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+  color: inherit;
+  vertical-align: middle;
+  background: none;
+  border: none;
+  border-radius: 1px;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Number input 스핀 제거 */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+/* 버튼 */
+button {
+  cursor: pointer;
+  overflow: visible;
+}
+
+/* Select 기본 화살표 제거 (IE, Edge 포함) */
+select::-ms-expand {
+  display: none;
+}
+
+/* Focus 스타일 */
+*:focus {
+  outline: 2px solid rgb(36, 107, 235);
+  outline-offset: 0.125rem;
+}
+
+/* 모바일 터치기기에서 포커스 제거 */
+@media (hover: hover) and (pointer: coarse), (hover: none) and (pointer: coarse) {
+  *:focus {
+    outline: none !important;
+  }
+}

@@ -1,0 +1,352 @@
+@charset "utf-8";
+
+/* Font import */
+@import url("https://fonts.googleapis.com/css2?family=Ephesis&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@import url(../fonts/pretendard/font.css);
+@import url(../fonts/sCoreDream/font.css);
+
+/*
+  font-family: "Ephesis", cursive;
+  font-family: "Raleway", sans-serif; 100 - 900
+*/
+
+/* 기본 설정 */
+:root {
+  font-size: 16px;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  width: 100%;
+  margin: 0 auto;
+  font-family: "Pretendard", "Noto Sans KR", sans-serif, "굴림", "dotum", "돋움", "Helvetica", "AppleGothic";
+  line-height: 1.4;
+  color: #222;
+
+  //cursor: url("https://blog.kakaocdn.net/dn/BQXpN/btq3qNR67Lg/8tx8tGzkOcr5BuX5dyIaKk/img.png"), auto;
+}
+
+/* 스크롤 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #999;
+  border: none;
+  border-radius: 12px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #999;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 12px;
+  background-color: #d9d9d9;
+}
+
+/* layout */
+.wrap {
+  &.sub {
+    background-color: #000;
+  }
+}
+
+.inner {
+  max-width: 73rem;
+  padding: 0 2rem;
+  margin: 0 auto;
+}
+
+/* cursor */
+// .cursor {
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   width: 30px;
+//   height: 30px;
+//   border-radius: 50%;
+//   pointer-events: none; /* 클릭 막기 */
+//   background: rgba(255, 0, 0, 0.5);
+//   transform: translate(-50%, -50%);
+//   transition: transform 0.15s ease; /* 부드러운 이동 */
+// }
+// .cursor.active {
+//   transform: translate(-50%, -50%) scale(1.5);
+//   background: rgba(255, 0, 0, 0.8);
+// }
+
+/* navigation */
+.navigation {
+  position: fixed;
+  top: 4.375rem;
+  right: 0;
+  width: fit-content;
+  padding: 0 1.25em;
+  font-size: 1rem;
+  border-radius: 0.625em 0 0 0.625em;
+  background-color: rgba($color: #fff, $alpha: 0.8);
+  transition: transform 0.3s;
+  will-change: transform;
+  z-index: 100;
+
+  &.scrolled {
+    transform: translateX(100%);
+  }
+
+  &-link {
+    position: relative;
+    display: block;
+    padding: 0.9375em;
+    color: #575757;
+    font-family: "Raleway", sans-serif;
+    text-transform: uppercase;
+    transition: color 0.3s;
+
+    &:before {
+      content: attr(data-icon);
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+    }
+
+    &:hover {
+      color: #222;
+      font-weight: 600;
+
+      &:before {
+        left: -0.625em;
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
+
+/* footer */
+.footer {
+  position: relative;
+  height: 100vh;
+  text-align: center;
+
+  &-text {
+    padding-top: 7.5rem;
+    font-family: "Ephesis", cursive;
+    font-size: 12.5rem;
+    font-weight: normal;
+  }
+
+  &-back {
+    position: relative;
+    height: 100%;
+
+    .footer-text {
+      color: #2b2b2b;
+    }
+  }
+
+  &-front {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 0;
+    width: 100%;
+
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 100vh;
+      width: 100%;
+      background-image: url("../images/common/video-thumb.jpg");
+      background-position: center top;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+
+  &-info {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100%;
+    color: #fff;
+    z-index: 1;
+  }
+
+  &-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 5rem;
+    font-family: "Raleway", sans-serif;
+    font-size: 1.25rem;
+
+    span {
+      font-family: Pretendard;
+      font-weight: 200;
+    }
+  }
+}
+
+/* bounce title */
+.bounce_title {
+  font-family: "Raleway", sans-serif;
+  font-size: 6.25rem;
+  text-transform: uppercase;
+  overflow: hidden;
+
+  span {
+    display: inline-block;
+    animation: bounce 4s cubic-bezier(0.77, 0.05, 0.35, 1.08) infinite;
+
+    &:nth-child(1) {
+      animation-delay: 0s;
+    }
+    &:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+    &:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+    &:nth-child(4) {
+      animation-delay: 0.3s;
+    }
+    &:nth-child(5) {
+      animation-delay: 0.4s;
+    }
+    &:nth-child(6) {
+      animation-delay: 0.5s;
+    }
+    &:nth-child(7) {
+      animation-delay: 0.6s;
+    }
+    &:nth-child(8) {
+      animation-delay: 0.7s;
+    }
+  }
+}
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+  10% {
+    transform: translateY(-20px);
+  }
+  20% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(0);
+  } /* 잠깐 정지 */
+}
+
+@media screen and (max-width: 1024px) {
+  /* layout */
+  .inner {
+    padding: 0 1rem;
+  }
+
+  /* bounce title */
+  .bounce_title {
+    font-size: 5rem;
+  }
+
+  /* footer */
+  .footer {
+    &-text {
+      padding-top: 5rem;
+      font-size: 8.75rem;
+    }
+    &-back {
+      .footer-text {
+        &:before {
+          top: 3.75rem;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* navigation */
+  .navigation {
+    top: 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  /* bounce title */
+  .bounce_title {
+    font-size: 11vw;
+    span {
+      animation: bounce-m 4s cubic-bezier(0.77, 0.05, 0.35, 1.08) infinite;
+    }
+  }
+  @keyframes bounce-m {
+    0% {
+      transform: translateY(0);
+    }
+    10% {
+      transform: translateY(-2vw);
+    }
+    20% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(0);
+    } /* 잠깐 정지 */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 4vw !important;
+  }
+
+  /* footer */
+  .footer {
+    &-text {
+      padding-top: 10vh;
+      font-size: 5.625rem;
+    }
+    &-bottom {
+      gap: 0.25rem;
+      margin-bottom: 2.5rem;
+      font-size: 1.125rem;
+    }
+    &-back {
+      .footer-text {
+        &:before {
+          top: 7vh;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  html {
+    font-size: 3.33vw !important;
+  }
+}
